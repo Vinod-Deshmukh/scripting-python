@@ -20,4 +20,4 @@ while i==1:
     else:
         result=number1/number2
         print(f"{number1} / {number2} = {result}")    
-    i=int(input("Enter '1' to continue , Enter '0' to stop:" ))
+    i=int(input("Enter '1' to continue , Enter '0' to stop:" )) 
