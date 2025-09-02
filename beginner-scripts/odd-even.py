@@ -1,3 +1,4 @@
+# Beginner Scripts 2
 number=int(input("Enter the number:"))
 if (number%2)==0:
     print(f"{number} is Even number.")

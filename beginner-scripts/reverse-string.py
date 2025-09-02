@@ -1,3 +1,4 @@
+# Beginner Scripts 5
 word=input("Enter the word you want to reverse: ")
 # [::-1] start from the end and move backwords one step at a time.
 revers=word[::-1]
