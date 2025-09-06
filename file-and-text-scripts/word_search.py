@@ -13,6 +13,6 @@
 word=input("enter the word you want to search: \n",)
 with open ("feel_good.txt") as file:
     if word in file.read():
-        print (f"✔ yes, the word you enters exists in this file")
+        print (f"✅ yes, the word {word} exists in this file")
     else:
-        print(f"the word you enter doesn't exists in this file")    
+        print(f"❌ sorry, the word {word} doesn't exists in this file")    
