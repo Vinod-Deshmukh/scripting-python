@@ -12,7 +12,9 @@
 
 word=input("enter the word you want to search: \n",)
 with open ("feel_good.txt") as file:
-    if word in file.read():
-        print (f"✅ yes, the word {word} exists in this file")
+    content=file.read()
+    count=content.count(word)
+    if count>0:
+        print (f"✅ yes, the word {word} appears {count} times in the file.")
     else:
         print(f"❌ sorry, the word {word} doesn't exists in this file")    
