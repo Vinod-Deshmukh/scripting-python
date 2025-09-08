@@ -15,8 +15,18 @@ for i in range(5):
     with open(full_file_path,"w") as file:
        file.write(f"This is the content of a new file-{file_name}")
        print(f'file named {file_name} created successfully in {directory_path}     \n')
-# try: 
-# # for item_name in os.listdir(directory_path):
-#         full_path=os.path.join(directory_path,item_name)
-#         if os.path.isfile(full_path):
-#             print(f"File {item_name}")
+i=0
+new_file=directory_path
+for item_name in os.listdir(directory_path):
+    old_file_path = os.path.join(directory_path, item_name)
+    new_file_name = f"new_{i}.txt"
+    new_file_path = os.path.join(directory_path, new_file_name)
+    if not os.path.exists(new_file_path):   # only rename if free
+        os.rename(old_file_path, new_file_path)
+        print(f"Renamed {item_name} -> {new_file_name}")
+    else:
+        print(f"Skipped {item_name}, because {new_file_name} already exists")
+    i=i+1
+    
+     
+    
