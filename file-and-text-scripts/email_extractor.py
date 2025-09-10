@@ -2,33 +2,30 @@
 # username@domain.extension
 text="hello, this is vinod. my email is vinod@fun.com  " \
 "and my friends email is friend@fun.com , " \
-"my brother also has email vinod_bro@family.co.uk"
+"my brother also has email vinod_bro@family.technology" \
+" one more vinod_bro@family.technology"
 # importing regex module.
 import re
 reg=re.findall(r"[A-Za-z0-9_%+-.]+" 
                r"@[A-Za-z0-9.-]+"
-               r"\.[A-Za-z]{2,5}",text)
+               r"\.[A-Za-z]{2,}",text)
 
 # 1. r"[A-Za-z0-9_%+-.]+"
-
-# This expression looks for a continuous sequence of characters consist 
-#  all capital alphabets defined by A-Z,
-#  lowercase alphabets a-z, all digits 0-9,
-#  and special characters such as _%+-. . 
-# The '+' is used to append the second regex to the first.
+# This matches the username part before the @.
 
 # 2. r"@[A-Za-z0-9.-]+"
+# @ Literally matches the @ symbol.
+# This matches the domain name part.
+# 3. r"\.[A-Za-z]{2,}"
+#This matches the top-level domain like .com, .org, .net, .info. 
 
-# This expression looks for a continuous sequence of characters consist of
-#  all capital alphabets defined by A-Z, 
-# lowercase alphabets a-z, all digits 0-9, and 
-# special characters such as ._. 
-# The '+' is used to append the second regex to the first.
+# Ignore duplicates (if the same email repeats in text)
+email=list(set(reg))
+print(email)
 
-# 3. r"\.[A-Za-z]{2,5}"
 
-# This expression looks for a continuous sequence of characters consist of
-#  all capital alphabets defined by A-Z, 
-# lowercase alphabets a-z such that the size of this continuous sequence is between 2-5 both inclusive.
-# printing all the emails found
-print(reg)
+# Extract from files instead of inline text
+# with open("emails.txt", "r") as f:
+#     content = f.read()
+# emails = re.findall(r"[A-Za-z0-9_%+-.]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", content)
+# print(emails)
