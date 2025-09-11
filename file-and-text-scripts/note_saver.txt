@@ -1,0 +1,11 @@
+#Script 14.
+note saver.
+Input text.
+Open file in "a"(append mode).
+file.write(text+"\n")Today is Day 11 
+I have done coding for continuous 11 days.
+Feeling Good.
+Today is Day 11 
+I have done coding for continuous 11 days.
+Feeling Good.
+Soon I will be working as Software Developer.

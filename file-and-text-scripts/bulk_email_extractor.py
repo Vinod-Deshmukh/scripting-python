@@ -19,7 +19,7 @@ for file_name in os.listdir(directory_path):
 output_file=os.path.join(directory_path,"email.csv")
 with open(output_file,'w',newline='')as csvfile:
     writer=csv.writer(csvfile)
-    writer.writerow(['Emails'])
+    writer.writerow(['Email'])
     for email in sorted(emails):
         writer.writerow([email])
 
