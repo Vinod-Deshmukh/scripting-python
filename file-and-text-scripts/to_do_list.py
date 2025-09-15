@@ -1,4 +1,4 @@
-# Script 14, To-Do-List.
+# Script 14, To-Do-List.   
 def display_tasks(tasks):
     """Displays the current tasks in the to-do list."""
     if not tasks:
