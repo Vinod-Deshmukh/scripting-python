@@ -10,7 +10,8 @@ def display(tasks):
 def main():
    tasks=[]
    print("\n -- Welcome to To Do List App -- \n")
-   print("Enter 1 to view List")
+   print("1. View Task \n")
+   choice=input("Enter Your Choice: \n")
 
 if __name__=="__main__":
     main()
