@@ -8,10 +8,15 @@ def display(tasks):
       print("\n ----Your To Do List is empty ----\n ")
 
 def main():
-   tasks=[]
-   print("\n -- Welcome to To Do List App -- \n")
-   print("1. View Task \n")
-   choice=input("Enter Your Choice: \n")
+    tasks=[]
+    while True:
+        print("\n -- Welcome to To Do List App -- \n")
+        print("1. View Task \n")
+        choice=input("Enter Your Choice: \n")
+        if choice=='1':
+            display(tasks)
+        else:
+            break
 
 if __name__=="__main__":
     main()
