@@ -15,19 +15,30 @@ def add(tasks):
     tasks=tasks.append(new_task)
     print(f" {new_task} added to list \n")
 
+def delete(tasks):
+    del_task=int(input("Enter the Task number you want to delete: \n"))-1
+    tasks=tasks.pop(del_task)
+    print(f"{del_task+1} deleted from the list.")
 def main():
     tasks=["Reading"]
     while True:
         print("\n -- Welcome to To Do List App -- \n")
         print("1. View Task \n")
         print("2. Add Task \n")
+        print("3. Delete Task \n")
+        print("4. Exit \n")
         choice=input("Enter Your Choice: \n")
         if choice=='1':
             display(tasks)
         elif choice=='2':
-            add(tasks)    
-        else:
+            add(tasks)   
+        elif choice=='3':
+            delete(tasks)
+        elif choice=='4':
+            print("by, see you soon!")
             break
+        else:
+            print("Invalid Choice")
 
 if __name__=="__main__":
     main()
