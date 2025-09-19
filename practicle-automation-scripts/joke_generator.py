@@ -15,7 +15,7 @@ local_jokes=["Chuck Norris once had sex with a dinosaur and then they became ext
 def get_api_jokes():
     """Fetch Jokes from API,return None if fails."""
     try:
-        response=requests.get(url,timeout=5)
+        response=requests.get(url,timeout=10)
         # raises error if not 200
         response.raise_for_status()
         data=response.json()
@@ -30,7 +30,7 @@ def get_random_joke():
         if joke:
             return joke
         # Fallback to local jokes
-        return random.choice(local_jokes)
+    return random.choice(local_jokes)
 # Main program
 if __name__=="__main__":
     try:
