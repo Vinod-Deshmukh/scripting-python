@@ -20,45 +20,6 @@
 # except Exception as e:
 #     print("⚠️ Error:", e)
 
-import requests
-import tkinter as tk
-from tkinter import ttk, messagebox
-
-# --- Fetch Rates Function ---
-def get_rates():
-    try:
-        url = "https://open.er-api.com/v6/latest/INR"
-        response = requests.get(url)
-        data = response.json()
-        if data["result"] == "success":
-            return data["rates"]
-        else:
-            messagebox.showerror("Error", "Failed to fetch exchange rates")
-            return {}
-    except Exception as e:
-        messagebox.showerror("Error", f"Something went wrong: {e}")
-        return {}
-
-# --- Convert Function ---
-def convert_currency():
-    try:
-        amount = float(amount_entry.get())
-        from_curr = from_currency.get()
-        to_curr = to_currency.get()
-        rates = get_rates()
-
-        if from_curr not in rates or to_curr not in rates:
-            messagebox.showerror("Error", "Invalid currency selected")
-            return
-
-        # Convert first to INR, then to target
-        in_inr = amount / rates[from_curr]
-        converted = in_inr * rates[to_curr]
-
-        result_label.config(text=f"{amount:.2f} {from_curr} = {converted:.2f} {to_curr}")
-    except ValueError:
-        messagebox.showwarning("Input Error", "Please enter a valid number.")
-
 # currency_ui.py
 import threading
 import requests
