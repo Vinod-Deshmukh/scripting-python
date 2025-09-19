@@ -6,4 +6,9 @@ import json
 url="https://api.chucknorris.io/jokes/random"
 
 response=requests.get(url,timeout=10)
-print(response.status_code)
+print(f"Staus Code: {response.status_code} \n")
+data=response.json()
+# print("Pretty Response:")
+# print(json.dumps(data,indent=4))
+joke=data["value"]
+print(f"Joke: {joke}")
