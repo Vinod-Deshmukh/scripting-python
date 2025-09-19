@@ -3,6 +3,8 @@
 # Use random.choice(list)
 import requests
 import random
+import openpyxl
+from openpyxl import Workbook
 # API url
 url="https://api.chucknorris.io/jokes/random"
 # Local backup jokes
@@ -39,5 +41,15 @@ if __name__=="__main__":
         # default to 1 if input is invalid.
         count=1
     print("\n Here are your jokes:\n")
+    workbook=Workbook()
+    # get the active sheet 
+    sheet=workbook.active
+    # writing data to cells
+    sheet['A1']='Joke'
+    
     for i in range(count):
-        print(f"{i+1}.{get_random_joke()}")
+        random_joke=get_random_joke()
+        print(f"{i+1}.{random_joke}")
+        sheet.cell(row=i+2,column=1,value=random_joke)
+    workbook.save('random_jokes.xlsx')
+        
