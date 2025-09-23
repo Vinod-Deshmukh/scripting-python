@@ -24,17 +24,21 @@ def set_alarm():
     print(f"alarm set for: {alram_time_str}")
     
     current_time=datetime.datetime.now().strftime("%H:%M:%s")
-    if current_time=alram_time_str:
-        print("Wake UP!")
-        if playsound:
-            try:
-                playsound()
-            except Exception as e:
-                print(f"Error in playing sound: {e}")
-        # break
+    while True:
+        if current_time==alram_time_str:
+            print("Wake UP!")
+            if playsound:
+                try:
+                    playsound('osho.mpeg')
+                except Exception as e:
+                    print(f"Error in playing sound: {e}")
+            break
     # check every second
     time.sleep(1)
 # set_alarm()
 
 if __name__=="__main__":
+    #create a dummy sound file if playsound is available and file doesn't exists.
+    if playsound and not os.path.exists('osho.mpeg'):
+        print("Note:osho.mpeg not found.Create or Place an MP3 file with this name for sound alerts.") 
     set_alarm()
