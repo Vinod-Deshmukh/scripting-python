@@ -22,4 +22,6 @@ def set_alarm():
         except ValueError as e:
             print(f"Error {e}.Please try again.")
     print(f"alarm set for: {alram_time_str}")
-set_alarm()
+    
+    current_time=datetime.datetime.now().strftime("%H:%M:%s")
+# set_alarm()
