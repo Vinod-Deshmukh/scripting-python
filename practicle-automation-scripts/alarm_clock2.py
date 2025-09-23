@@ -24,4 +24,17 @@ def set_alarm():
     print(f"alarm set for: {alram_time_str}")
     
     current_time=datetime.datetime.now().strftime("%H:%M:%s")
+    if current_time=alram_time_str:
+        print("Wake UP!")
+        if playsound:
+            try:
+                playsound()
+            except Exception as e:
+                print(f"Error in playing sound: {e}")
+        # break
+    # check every second
+    time.sleep(1)
 # set_alarm()
+
+if __name__=="__main__":
+    set_alarm()
